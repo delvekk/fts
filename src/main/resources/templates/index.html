@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <!------ Include the above in your HEAD tag ---------->
+</head>
+
+<body>
+<section>
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://cdn-images-1.medium.com/max/1600/1*Cbj_BcK5ePD4Mc4TK4sfvQ.jpeg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="search-sec">
+    <div class="container">
+        <form action="#" th:action="@{/search}" method="get" novalidate="novalidate">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                            <input type="text" name="words" class="form-control search-slt" placeholder="Szukane wyrazy">
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                            <input type="text"  name="author" class="form-control search-slt" placeholder="Autorzy">
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-12 p-0">
+                            <input type="number" name="from" class="form-control search-slt" placeholder="Od">
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-12 p-0">
+                            <input type="number" name="to" class="form-control search-slt" placeholder="Do">
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-12 p-0">
+                            <button type="submit" class="btn btn-danger wrn-btn">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+</body>
+</html>

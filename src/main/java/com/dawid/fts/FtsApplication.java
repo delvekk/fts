@@ -18,7 +18,6 @@ public class FtsApplication {
     public HttpSolrClient httpSolrClient() {
         String urlString = "http://localhost:8983/solr";
         HttpSolrClient solr = new HttpSolrClient.Builder(urlString).build();
-        //solr.setParser(new XMLResponseParser());
         return solr;
     }
 }

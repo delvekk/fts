@@ -25,5 +25,8 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     compile group: 'org.apache.solr', name: 'solr-solrj', version: '8.0.0'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.1.4.RELEASE'
+
+
 
 }
