@@ -16,11 +16,9 @@ public class DocumentController {
 
     private final DocumentService documentService;
 
-
     public DocumentController(DocumentService documentService) {
         this.documentService = documentService;
     }
-
 
     @GetMapping("/start")
     public String getIndexPage(Model model) {
