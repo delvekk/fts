@@ -26,10 +26,10 @@ public class DocumentController {
     }
 
     @GetMapping("/search")
-    public String getDocumentsByAllParams(@RequestParam("author") String author,
-                                          @RequestParam("from") String from,
-                                          @RequestParam("to") String to,
-                                          @RequestParam("words") String words,
+    public String getDocumentsByAllParams(@RequestParam(value = "author", defaultValue = "*") String author,
+                                          @RequestParam(value = "from", defaultValue = "0000") Integer from,
+                                          @RequestParam(value = "to", defaultValue = "9999") Integer to,
+                                          @RequestParam(value = "words", defaultValue = "*") String words,
                                           Model model) {
         try{
             model.addAttribute("documents", documentService.getDocumentsByAllParams(author, from, to, words));

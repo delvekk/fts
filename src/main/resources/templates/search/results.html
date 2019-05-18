@@ -23,12 +23,17 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-2">
                 <ul class="meta-search">
-                    <li><i class="glyphicon glyphicon-calendar"></i><span th:text="${document.getDate()}">text</span></li>
+                    <li><i class="glyphicon glyphicon-calendar"></i><span th:text="${document.getYear()}">text</span></li>
                     <li><i class="glyphicon glyphicon-user"></i><span th:text="${document.getAuthor()}">text2</span></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-7">
-                <h3 th:text="${document.getTitle().get(0)}">Tytuł</h3>
+                <h3 th:text="${document.getTitle()}">Tytuł</h3>
+                <ul class="meta-search">
+                    <li th:each="word : ${document.getWordsCount()}"><i class="glyphicon glyphicon-star"></i>
+                        <span th:text="'Word: ' + ${word.getKey()} + ' occures ' + ${word.getValue()} + ' times'">02/13/2014</span>
+                    </li>
+                </ul>
             </div>
             <span class="clearfix borda"></span>
         </article>

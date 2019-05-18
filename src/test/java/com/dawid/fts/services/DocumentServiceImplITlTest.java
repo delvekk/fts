@@ -37,29 +37,13 @@ public class DocumentServiceImplITlTest {
     @Test
     public void testWhatReturnsFlParameter() throws Exception {
 
-        SolrDocumentList solrDocuments = documentService.countWordsInDocument("\"D:\\\\solr-7.7.0\\\\example\\\\docsforsolr\\\\solr-word.pdf\"", "is"
+        Map<String, Integer> wordsCount = documentService.countWordInDocument("\"D:\\\\solr-7.7.0\\\\example\\\\docsforsolr\\\\solr-word.pdf\"", "is this"
         );
 
-        for(SolrDocument document : solrDocuments) {
-            System.out.println(document.getFieldValue("termfreq(text,is)"));
+        for(Map.Entry<String,Integer> entry : wordsCount.entrySet()){
+            System.out.println(entry.getKey() + " " + entry.getValue());
         }
-
-
-        assertThat(solrDocuments, hasSize(1));
-
-//        final Map<String, String> queryParamMap = new HashMap<String, String>();
-//        queryParamMap.put("q", "id:\"D:\\\\solr-7.7.0\\example\\\\docsforsolr\\\\solr-word.pdf\"");
-//        queryParamMap.put("fl", "termfreq(text,'is')");
-//        MapSolrParams queryParams = new MapSolrParams(queryParamMap);
-//
-//        final QueryResponse response = client.query("documents4", queryParams);
-//        final SolrDocumentList documents = response.getResults();
-//
-//        for(SolrDocument document : documents) {
-//            assertTrue(document.getFieldNames().contains("id"));
-//            assertTrue(document.getFieldNames().contains("name"));
-//        }
-
+        assertEquals( 2, wordsCount.size());
     }
 
 
