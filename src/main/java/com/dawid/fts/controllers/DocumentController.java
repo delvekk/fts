@@ -25,6 +25,11 @@ public class DocumentController {
         return "index";
     }
 
+    @GetMapping
+    public String redirectFromWrongUlr() {
+        return "redirect:/start";
+    }
+
     @GetMapping("/search")
     public String getDocumentsByAllParams(@RequestParam(value = "author", defaultValue = "*") String author,
                                           @RequestParam(value = "from", defaultValue = "0000") Integer from,
