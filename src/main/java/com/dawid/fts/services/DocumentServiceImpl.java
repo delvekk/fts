@@ -72,7 +72,8 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     @Override
-    public List<DocumentDTO> getDocumentsByAllParams(String authorName, Integer from, Integer to, String words) throws SolrServerException, IOException {
+    public List<DocumentDTO> getDocumentsByAllParams(String authorName, Integer from, Integer to, String words)
+            throws SolrServerException, IOException {
         String query = "author:" + authorName + " AND last_modified:[" + from + "-01-01T00:00:00Z TO " + to + "-12-31T00:00:00Z]" +
                 " AND text:" + words;
         List<Document> foundDocuments =  qDoQuery(query);
@@ -101,7 +102,9 @@ public class DocumentServiceImpl implements DocumentService {
             SolrDocumentList documents = response.getResults();
             for(SolrDocument document : documents) {
                 Integer count = (Integer) document.getFieldValue("termfreq(text," + word + ")");
-                wordsCount.put(word, count);
+                if(count > 0) {
+                    wordsCount.put(word, count);
+                }
             }
         }
         return wordsCount;

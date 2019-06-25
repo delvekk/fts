@@ -1,7 +1,6 @@
 package com.dawid.fts.controllers;
 
 
-import com.dawid.fts.domain.Document;
 import com.dawid.fts.services.DocumentService;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.springframework.stereotype.Controller;
@@ -25,10 +24,6 @@ public class DocumentController {
         return "index";
     }
 
-    @GetMapping
-    public String redirectFromWrongUlr() {
-        return "redirect:/start";
-    }
 
     @GetMapping("/search")
     public String getDocumentsByAllParams(@RequestParam(value = "author", defaultValue = "*") String author,
